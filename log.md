@@ -17,6 +17,8 @@ Format: `## YYYY-MM-DD` then `**Done** / **Decided** / **Next**`.
 - Seeded 15 single-turn prompts and 4 multi-turn conversations as design examples.
 - Built the pipeline: `src/run_eval.py` -> `results/raw/` -> `src/score.py` ->
   `results/analysis/`. Verified end to end with the offline `echo` provider.
+- Wrote `docs/handbook.md` -- the full project guide covering research design,
+  annotation methodology, the ML background, metrics, timeline, and failure modes.
 
 **Decided**
 - *Models are served over an OpenAI-compatible HTTP API* (vLLM / Ollama / llama.cpp)
@@ -36,6 +38,9 @@ Format: `## YYYY-MM-DD` then `**Done** / **Decided** / **Next**`.
   rate of zero mean different things in a results table.
 - *The heuristic classifier is a pilot tool only.* Reported numbers require a judge
   validated against human labels at kappa >= 0.8.
+- *`docs/handbook.md` is orientation, not specification.* It will drift as the project
+  develops. `rubric/`, `data/schema.md` and this log stay authoritative; when the
+  handbook contradicts them, the handbook is what's wrong.
 
 **Next**
 - Read `rottger2024xstest` and verify the positioning claim in

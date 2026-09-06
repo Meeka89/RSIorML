@@ -7,6 +7,8 @@ A benchmark evaluating whether open-weight LLMs can use conversational context t
 **Target venue:** *The First Derivative* (undergraduate research journal for CS & AI)
 **Timeline:** August 2026 – March 2027
 
+**New here, or need the whole picture?** Start with [`docs/handbook.md`](docs/handbook.md).
+
 ## Motivation
 
 Questions about distillation, model compression, fine-tuning, and alignment are core to legitimate ML education and research. But the same topics border on misuse: unauthorized model imitation, safety-removal fine-tuning, and AI-assisted AI development. Existing safety benchmarks focus on broad harmful-content refusal, jailbreaks, or over-refusal (e.g., XSTest, OR-Bench). Few examine the gray area between AI research and AI-improvement misuse — and fewer still test whether models can track a conversation's *shift* from legitimate to suspect intent across turns.
@@ -39,7 +41,9 @@ Each item is labeled with an expected response type: normal helpful response, cl
 ├── README.md
 ├── log.md                   # Dated research log -- decisions and rationale
 ├── requirements.txt
-├── docs/proposal/           # Original project proposal (md + pdf)
+├── docs/
+│   ├── handbook.md          # Full project guide -- methods, code, timeline, risks
+│   └── proposal/            # Original project proposal (md + pdf)
 ├── papers/
 │   ├── bibliography.md      # Annotated bibliography by background area
 │   └── reading-notes.md     # Per-paper notes
