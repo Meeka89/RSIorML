@@ -4,10 +4,9 @@ Everything that goes into building this benchmark — the research claim, the me
 that make it hold up, the code that runs it, and the seven months between here and
 submission.
 
-> **Companion document.** Where this handbook and the repo disagree, `rubric/` and
-> `data/schema.md` are authoritative, and `log.md` is the running record of decisions.
-> A formatted version is published at
-> <https://claude.ai/code/artifact/c153349e-6cb7-400d-80c1-f9f9f0f13b4f>.
+> **Companion document.** This is orientation, not specification. Where it and the repo
+> disagree, `rubric/` and `data/schema.md` are authoritative, and `log.md` is the
+> running record of decisions.
 
 | | |
 |---|---|
