@@ -1,0 +1,9 @@
+# The eval pipeline (src/) runs on the standard library alone -- no install needed
+# to run or score a benchmark. Everything below is for analysis and figures.
+
+pandas>=2.0
+matplotlib>=3.7
+tabulate>=0.9
+
+# Optional, for a local judge or for serving models on this machine:
+# vllm>=0.6
