@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environment / secrets
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Local scratch work -- anything here is disposable
+scratch/
+
+# NOTE: results/raw/ and results/analysis/ are intentionally NOT ignored.
+# Raw model outputs are the experimental record; they are committed so results
+# stay reproducible and auditable. If a run gets large enough to strain git,
+# compress it or move to git-lfs -- do not start ignoring it.

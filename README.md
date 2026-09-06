@@ -7,6 +7,8 @@ A benchmark evaluating whether open-weight LLMs can use conversational context t
 **Target venue:** *The First Derivative* (undergraduate research journal for CS & AI)
 **Timeline:** August 2026 – March 2027
 
+**New here, or need the whole picture?** Start with [`docs/handbook.md`](docs/handbook.md).
+
 ## Motivation
 
 Questions about distillation, model compression, fine-tuning, and alignment are core to legitimate ML education and research. But the same topics border on misuse: unauthorized model imitation, safety-removal fine-tuning, and AI-assisted AI development. Existing safety benchmarks focus on broad harmful-content refusal, jailbreaks, or over-refusal (e.g., XSTest, OR-Bench). Few examine the gray area between AI research and AI-improvement misuse — and fewer still test whether models can track a conversation's *shift* from legitimate to suspect intent across turns.
@@ -37,20 +39,75 @@ Each item is labeled with an expected response type: normal helpful response, cl
 
 ```
 ├── README.md
-├── papers/              # Annotated bibliography and reading notes
+├── log.md                   # Dated research log -- decisions and rationale
+├── requirements.txt
+├── docs/
+│   ├── handbook.md          # Full project guide -- methods, code, timeline, risks
+│   └── proposal/            # Original project proposal (md + pdf)
+├── papers/
+│   ├── bibliography.md      # Annotated bibliography by background area
+│   └── reading-notes.md     # Per-paper notes
 ├── data/
-│   ├── prompts/         # Labeled single-turn prompts by category
-│   └── conversations/   # Multi-turn context-shift dialogues
-├── rubric/              # Labeling rubric and annotation guidelines
+│   ├── schema.md            # Authoritative field reference for both datasets
+│   ├── prompts/             # Single-turn labeled prompts (categories 1-3)
+│   └── conversations/       # Multi-turn context-shift dialogues (category 4)
+├── rubric/
+│   ├── labeling-rubric.md   # How items get their category and expected response
+│   └── scoring-rubric.md    # How model responses get classified
 ├── src/
-│   ├── run_eval.py      # Runs models against the benchmark
-│   └── score.py         # Computes metrics from raw outputs
+│   ├── schema.py            # Vocabularies and item loading
+│   ├── validate.py          # Dataset validation
+│   ├── providers.py         # Model backends (OpenAI-compatible HTTP)
+│   ├── classify.py          # Response classification + judge agreement
+│   ├── run_eval.py          # Runs models against the benchmark
+│   └── score.py             # Computes metrics from raw outputs
 ├── results/
-│   ├── raw/             # Full model outputs (never overwrite)
-│   └── analysis/        # Scored results, figures, tables
-├── paper/               # Manuscript drafts
-└── log.md               # Dated research log
+│   ├── raw/                 # Full model outputs (append-only, never overwrite)
+│   └── analysis/            # Scored results, metrics, figures
+└── paper/
+    └── outline.md           # Manuscript outline
 ```
+
+## Quick start
+
+The pipeline needs only the Python standard library. Verify the dataset and run the
+offline smoke test:
+
+```bash
+python -m src.validate
+```
+
+```bash
+python -m src.run_eval --model echo --limit 3
+```
+
+To evaluate a real model, serve it over an OpenAI-compatible endpoint (vLLM, Ollama,
+or `llama.cpp`), point the harness at it, then score the run:
+
+```bash
+export BENCH_BASE_URL=http://localhost:8000/v1
+```
+
+```bash
+python -m src.run_eval --model Qwen/Qwen2.5-7B-Instruct
+```
+
+```bash
+python -m src.score results/raw/<the-file-just-written>.jsonl
+```
+
+`score.py` defaults to a keyword heuristic, which is for pilot runs only. Reported
+numbers require a judge validated against human labels — see `rubric/scoring-rubric.md`.
+
+## Working conventions
+
+- **Add a dataset item** by appending one line to the relevant `.jsonl`, with a
+  `rationale` written per `rubric/labeling-rubric.md`. Run `python -m src.validate`
+  before committing.
+- **Never edit `results/raw/`.** Superseded runs stay in place; note why in `log.md`.
+- **Record design decisions in `log.md`, not just in commit messages.** The methods
+  section gets written from that file.
+- **Item IDs are permanent.** Retire with `"status": "retired"`; never reuse an ID.
 
 ## Models evaluated
 
