@@ -4,7 +4,15 @@ Exploratory work that runs on a GPU. Nothing here is part of the reproducible
 pipeline — results that go in the paper come from `src/run_eval.py` and
 `src/score.py`, not from a notebook.
 
-## `colab_smoke_test.ipynb`
+## Start here: `colab_basics.ipynb`
+
+Read the [setup guide](../docs/colab-setup.md), then upload this notebook to Colab.
+It teaches model loading, tokenization, a single prompt, conversation history, and
+downloading a test output using a small public model. No token or repo clone needed.
+
+Edit `build_colab_basics.py` and regenerate with `python notebooks/build_colab_basics.py`.
+
+## Later: `colab_smoke_test.ipynb`
 
 Loads a Hugging Face instruct model on a Colab GPU and runs a handful of real
 benchmark items through it, including the `shift-imitation-001` / `shift-control-001`

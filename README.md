@@ -71,6 +71,10 @@ Each item is labeled with an expected response type: normal helpful response, cl
 
 ## Quick start
 
+**Learning Colab and Hugging Face first?** Follow the
+[beginner setup guide](docs/colab-setup.md) and run `notebooks/colab_basics.ipynb`.
+It walks through loading a small model, sending prompts, and saving a test conversation.
+
 The pipeline needs only the Python standard library. Verify the dataset and run the
 offline smoke test:
 

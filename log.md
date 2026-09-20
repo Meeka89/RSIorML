@@ -1,5 +1,14 @@
 # Research log
 
+## 2026-09-20 — Colab learning walkthrough
+
+- Added a standalone beginner notebook and setup guide before the existing benchmark
+  smoke test. Current scope is learning inference, not collecting research results.
+- Use public Qwen2.5-0.5B-Instruct with CPU fallback, explicit chat formatting,
+  conversation history, and downloadable learning output. Pin Transformers to 5.13.0.
+- Checked generated notebook JSON, empty outputs, and Python cell syntax locally.
+  Model loading and generation in a hosted Colab runtime still need a first run.
+
 Dated, append-only. One entry per working session: what was done, what was decided and
 why, what is next. Decisions recorded here are what the methods section gets written
 from — do not rely on memory or on git history alone.
