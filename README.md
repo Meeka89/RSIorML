@@ -61,6 +61,7 @@ Each item is labeled with an expected response type: normal helpful response, cl
 │   ├── classify.py          # Response classification + judge agreement
 │   ├── run_eval.py          # Runs models against the benchmark
 │   └── score.py             # Computes metrics from raw outputs
+├── notebooks/              # Colab/GPU exploration (not part of the pipeline)
 ├── results/
 │   ├── raw/                 # Full model outputs (append-only, never overwrite)
 │   └── analysis/            # Scored results, metrics, figures
