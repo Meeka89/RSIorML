@@ -16,3 +16,12 @@ Preserve this preliminary run. Truncation prevents definitive whole-response
 behavioral judgments; the rerun notebook raises the cap to 1,024 while retaining
 the model revision and dataset snapshot. Download and keep the new run separately.
 These are development outputs, not scored final benchmark results.
+
+## Gemma 2 9B Instruct — 1,024-token rerun
+
+`google__gemma-2-9b-it__20261012T014638257327Z.zip` preserves the unmodified rerun
+export. Manifest confirms greedy decoding with a 1,024-token cap. All 27 response
+records completed with zero recorded errors and zero output-cap flags.
+Retain both runs; the first remains evidence of the shorter-budget screening.
+Manual behavior and comprehension review is still required before reporting scores
+or selecting teacher responses for distillation.
